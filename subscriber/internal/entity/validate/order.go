@@ -7,7 +7,7 @@ import (
 
 func CheckDelivery(d *entity.Delivery) error {
 	if len(d.Name) < 1 {
-		return InvalidName
+		return InvalidNameErr
 	}
 
 	if d.Phone == "" {
@@ -18,8 +18,8 @@ func CheckDelivery(d *entity.Delivery) error {
 }
 
 func CheckPayment(p *entity.Payment) error {
-	if p.RequestID == "" {
-		return fmt.Errorf("no field request id")
+	if p.Amount <= 0 {
+		return InvalidAmountErr
 	}
 
 	if p.Transaction == "" {
@@ -44,7 +44,7 @@ func CheckOrder(order *entity.Order) error {
 
 	for _, i := range order.Items {
 		if i.Price < 0 || i.TotalPrice < 0 {
-			return InvalidItemPrice
+			return InvalidItemPriceErr
 		}
 	}
 
