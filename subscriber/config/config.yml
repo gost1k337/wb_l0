@@ -1,0 +1,10 @@
+app:
+  port: 3000
+  host: "localhost"
+
+nats-server:
+  host: "localhost"
+  port: 4222
+  cluster_id: "test-cluster"
+  client_id: "test-sub-client"
+  channel: "test-channel"
