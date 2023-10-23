@@ -31,7 +31,7 @@ func (h *Handler) ReceiveOrderHandler(msg *stan.Msg) {
 		return
 	}
 
-	if err := validate.ValidateOrder(order); err != nil {
+	if err := validate.CheckOrder(order); err != nil {
 		h.logger.Errorf("validate: %v", err)
 		return
 	}
