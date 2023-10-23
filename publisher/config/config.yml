@@ -1,0 +1,6 @@
+nats-server:
+  host: "localhost"
+  port: 4222
+  cluster_id: "test-cluster"
+  client_id: "test-pub-client"
+  channel: "test-channel"
